@@ -23,8 +23,8 @@ class Mailbox
 
   def self.sub_socket(agent)
     @sub = @context.socket(ZMQ::SUB)
-    @sub.setsockopt(ZMQ::IDENTITY, "#{agent}")
-    # @sub.setsockopt(ZMQ::SUBSCRIBE, "#{agent} ")
+    # @sub.setsockopt(ZMQ::IDENTITY, "#{agent}")
+    @sub.setsockopt(ZMQ::SUBSCRIBE, "#{agent} ")
     @sub.connect("tcp://127.0.0.1:9001")
     @sub
   end
